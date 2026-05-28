@@ -17,6 +17,14 @@ export default function ContextProvider (props){
     const[showResult,setShowResult] = useState(false);
     const[loading,setLoading] = useState(false);
     const[resultData,setResultData] = useState("");
+    //light & dark mode feature
+    const [theme, setTheme] = useState("light");
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => {
+            return prevTheme === "light" ? "dark" : "light"
+        });
+    };
 
     // Typing effect for gemini's response
     //setTimeout is a built-in JavaScript feature that tells the browser, "Wait this many milliseconds before running the code inside."
@@ -91,7 +99,9 @@ export default function ContextProvider (props){
         loading,
         input,
         setInput,
-        newChat
+        newChat,
+        theme,
+        toggleTheme,
     }
 
     // This is the manager saying, "Okay, any component that sits inside of me (props.children) is allowed to have access to the contextValue package.

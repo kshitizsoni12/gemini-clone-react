@@ -71,3 +71,28 @@
         display: none;
     }
 }
+
+
+
+
+/* =========================================
+   DARK MODE OVERRIDES (Sidebar)
+   ========================================= */
+.dark .sidebar {
+    background-color: #1e1f20;
+    color: #e3e3e3;
+}
+.dark .sidebar .new-chat {
+    background-color: #131314;
+    color: #e3e3e3;
+}
+.dark .sidebar .recent-entry {
+    color: #e3e3e3;
+}
+.dark .sidebar .recent-entry:hover {
+    background-color: #333537;
+}
+/* Invert the sidebar icons to white */
+.dark .sidebar img {
+    filter: invert(1);
+}

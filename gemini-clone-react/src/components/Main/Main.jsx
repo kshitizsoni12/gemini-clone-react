@@ -6,13 +6,27 @@ import { Context } from '../../context/Context.jsx'
 
 export default function Main() {
 
-    const{onSent,recentPrompt,showResult,loading,resultData,setInput,input,newChat} = useContext(Context)
+    const{onSent,recentPrompt,showResult,loading,resultData,setInput,input,newChat,theme,toggleTheme} = useContext(Context)
 
   return (
     <div className='main'>
         <div className="nav">
             <p onClick={newChat}>Gemini</p>
-            <img src={assets.user_icon} alt="" />
+            <div className="nav-right" style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
+                {/* The Toggle Button! */}
+                <button 
+                    onClick={toggleTheme} 
+                    style={{
+                        background: 'transparent', 
+                        border: 'none', 
+                        fontSize: '24px', 
+                        cursor: 'pointer',
+                        color: theme === 'light' ? '#333' : '#fff' 
+                    }}> 
+                    {theme === 'light' ? <i className="fa-solid fa-moon"></i> : <i className="fa-solid fa-sun"></i>} 
+                </button>
+                <img src={assets.user_icon} alt="" className="user-icon" />
+            </div>
         </div>
         <div className="main-container">
             {showResult===false?

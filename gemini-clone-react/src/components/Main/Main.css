@@ -89,6 +89,7 @@
 }
 
 .main-bottom .search-box{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -226,6 +227,7 @@
         padding: 0px 10px; /* Tighter against the screen edges */
     }
     .main-bottom .search-box {
+        width: 90%;
         padding: 5px 15px;
         gap: 10px;
     }
@@ -269,4 +271,45 @@
         bottom: 10px;
         right: 10px;
     }
+}
+
+
+
+
+/* =========================================
+   DARK MODE OVERRIDES (Main)
+   ========================================= */
+.dark .main {
+    background-color: #131314;
+    color: #e3e3e3;
+}
+.dark .main .nav {
+    color: #e3e3e3;
+}
+.dark .main-bottom {
+    background-color: #131314; /* Overrides the white background we added for mobile */
+}
+.dark .search-box {
+    background-color: #1e1f20;
+}
+.dark .search-box input {
+    color: white;
+}
+.app.dark .main-container .cards .card {
+    background-color: #1e1f20;
+}
+.app.dark .main-container .cards .card:hover {
+    background-color: #333537;
+}
+.app.dark .main-container .cards .card p {
+    color: #e3e3e3;
+}
+.dark .bottom-info {
+    color: #a9a9a9;
+}
+
+/* THE ICON TRICK: This magically turns your black icons white in dark mode! */
+.dark .search-box img, 
+.dark .card img {
+    filter: invert(1);
 }
