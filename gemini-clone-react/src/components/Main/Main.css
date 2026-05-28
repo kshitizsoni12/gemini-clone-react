@@ -1,0 +1,272 @@
+.main{
+    /*tells an element, "Grow and take up all the leftover space on the screen." */
+    flex: 1;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-bottom: 15vh;
+    position: relative;
+}
+
+.main .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px;
+    color: #585858;
+}
+
+.main .nav p{
+    cursor: pointer;
+}
+
+.main .nav img{
+    width: 40px;
+    border-radius: 50%;
+}
+
+.main-container{
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.main-container .greet{
+    margin: 50px 0px;
+    font-size: 56px;
+    color: #c4c7c9;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.main-container .greet span{
+    background: linear-gradient(16deg, #4b90ff, #ff5546);
+    background-clip: text;
+    color: transparent;
+}
+
+.main-container .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.main-container .cards .card{
+    height: 180px;
+    padding: 15px;
+    background-color: #f0f4f9;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.card img{
+    width: 35px;
+    padding: 5px;
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.card p{
+    color: #585858;
+    font-size: 17px;
+}
+.main .card:hover{
+    background-color: #dfe4ea;
+}
+
+.main-bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 1000px;
+    padding: 15px 20px;
+    margin: auto;
+}
+
+.main-bottom .search-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f0f4f9;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.main-bottom .search-box img{
+    width: 24px;
+    cursor: pointer;
+}
+
+.search-box input{
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.search-box div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-bottom .bottom-info{
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.result{
+    padding: 0px 5%;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.result {
+    scrollbar-width: none; 
+}
+
+.result-title{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.result img{
+    width: 40px;
+    border-radius: 50px;
+}
+
+.result-data{
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    text-align: justify;
+}
+
+/* 1. First, define the animation rules (you can put this at the bottom of your CSS file) */
+@keyframes shimmer {
+    0% {
+        background-position: -800px 0px;
+    }
+    100% {
+        background-position: 800px 0px;
+    }
+}
+
+.result-data .loader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result-data .loader hr {
+    /* (Note: I changed your 'border: 4px;' to 'border-radius: 4px;' to make the edges nicely rounded!) */
+    border-radius: 4px; 
+    border: none;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+    background-size: 800px 50px;
+    height: 20px;
+    
+    /* 2. Tell the hr tags to use the "shimmer" animation we created above */
+    /* 3s = takes 3 seconds, infinite = loops forever, linear = smooth speed */
+    animation: shimmer 3s infinite linear;
+}
+
+.result-data p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Max Width: 600px)
+   ========================================= */
+@media (max-width: 600px) {
+    
+    .main {
+        padding-bottom: 100px; 
+    }
+
+    /* 1. Hide Sidebar */
+    .sidebar {
+        display: none;
+    }
+
+    /* 2. Shrink the giant greeting text */
+    .main-container .greet {
+        font-size: 38px; /* Down from 56px */
+        margin: 30px 0px;
+        padding: 15px;
+    }
+
+    /* 3. Give the chat text a little more breathing room */
+    .result {
+        padding: 0px 10px;
+    }
+    .result-data p {
+        font-size: 15px;
+    }
+
+    /* 4. Make the input bar flexible and compact */
+    .main-bottom {
+        padding: 0px 10px; /* Tighter against the screen edges */
+    }
+    .main-bottom .search-box {
+        padding: 5px 15px;
+        gap: 10px;
+    }
+    .search-box input {
+        flex: 1; /* Let flexbox calculate the perfect width! */
+        width: 100%;
+        font-size: 15px;
+    }
+    .main-bottom .search-box img {
+        width: 20px; /* Slightly smaller icons */
+    }
+    .search-box div {
+        gap: 10px; /* Tighter gap between the mic/gallery/send icons */
+    }
+    
+    /* 5. Hide the tiny footer text to save space */
+    .main-bottom .bottom-info {
+        font-size: 11px;
+        margin: 10px auto;
+    }
+
+    /* 6. Force the cards into a 2x2 layout */
+    .main-container .cards {
+        grid-template-columns: repeat(2, 1fr); /* Creates exactly 2 equal columns (1 Fraction each) */
+        gap: 10px; /* Slightly tighter gap to save space */
+        padding: 10px;
+    }
+
+    /* 7. Shrink the cards slightly so they don't look massive on a small screen */
+    .main-container .cards .card {
+        height: 130px; /* Down from 180px */
+        padding: 10px;
+    }
+
+    /* 8. Shrink the text and icons to fit the new smaller cards */
+    .main-container .cards .card p {
+        font-size: 13px; 
+    }
+    .main-container .cards .card img {
+        width: 25px; 
+        bottom: 10px;
+        right: 10px;
+    }
+}
