@@ -18,7 +18,7 @@ export default function ContextProvider (props){
     const[loading,setLoading] = useState(false);
     const[resultData,setResultData] = useState("");
     //light & dark mode feature
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("dark");
 
     const toggleTheme = () => {
         setTheme((prevTheme) => {

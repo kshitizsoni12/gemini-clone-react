@@ -83,8 +83,6 @@ export default function Main() {
                 <div className="search-box">
                     <input onChange={(event) => setInput(event.target.value)} value={input} type="text" placeholder='Enter a prompt here'/>
                     <div>
-                        <img src={assets.gallery_icon} alt="" />
-                        <img src={assets.mic_icon} alt="" />
                         {input!=""?
                         <img onClick={() => onSent()} src={assets.send_icon} alt="" />
                         :null
